@@ -226,7 +226,7 @@ proto._drawTicks = function () {
 
     this._drawLine(this._toPoint(major, 0.7), this._toPoint(major, 0.85), 'major-tick');
 
-    if (major === this._min || major === this._max) {
+    if (major === 0 || major === this._min/2 || major === this._max/2 ) {
       point = this._toPoint(major, 0.63);
       this._gauge
         .append('svg:text')
@@ -317,7 +317,7 @@ proto._drawNeedle = function () {
     .enter()
       .append('svg:text')
         .attr('x'             ,  this._cx)
-        .attr('y'             ,  this._size - this._cy / 4 - fontSize)
+        .attr('y'             ,  this._size - this._cy / 2.5 - fontSize)
         .attr('dy'            ,  fontSize / 2)
         .attr('text-anchor'   ,  'middle')
 }
@@ -333,7 +333,7 @@ proto._buildNeedlePath = function (value) {
   }
 
   var delta = this._range * this._needleWidthRatio / 10
-    , tailValue = value - (this._range * (1/ (270/360)) / 2)
+    , tailValue = value - (this._range * (1/ (360/360)) / 2)
 
   var head = valueToPoint(value, 0.85)
     , head1 = valueToPoint(value - delta, 0.12)
@@ -348,7 +348,7 @@ proto._buildNeedlePath = function (value) {
 
 proto._toDegrees = function (value) {
   // Note: tried to factor out 'this._range * 270' but that breaks things, most likely due to rounding behavior
-  return value / this._range * 270 - (this._min / this._range * 270 + 45);
+  return value / this._range * 360 - (this._min / this._range * 360 + 90);
 }
 
 proto._toRadians = function (value) {

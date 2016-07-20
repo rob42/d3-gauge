@@ -1,6 +1,8 @@
 # d3-gauge
 
-Gauge visualization built on top of d3.
+Gauge visualization built on top of d3. 
+ 
+Note: This clone has a few tweaks to get 360 deg range for freeboard-sk wind instrument
 
 [![demo](https://github.com/thlorenz/d3-gauge/raw/master/assets/gauge-demo.gif)](http://thlorenz.github.io/d3-gauge/index.html)
 
@@ -16,7 +18,9 @@ circle.
 
 ## Installation
 
-    npm install d3-gauge
+   Original:  npm install d3-gauge
+   This version: npm install git://github.com/rob42/d3-gauge.git#master
+   
 ## Try it
 
 ```sh
